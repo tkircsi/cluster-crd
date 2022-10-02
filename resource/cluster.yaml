@@ -1,8 +1,17 @@
 apiVersion: extension.tkircsi.info/v1alpha1
 kind: "Cluster"
 metadata:
-  name: "example-cluster"
+  name: "worker-cluster"
+  namespace: "default"
+spec:
+  replicas: 2
+  clusterName: "worker"
+---
+apiVersion: extension.tkircsi.info/v1alpha1
+kind: "Cluster"
+metadata:
+  name: "manager-cluster"
   namespace: "default"
 spec:
   replicas: 1
-  clusterName: "management"
+  clusterName: "manager"

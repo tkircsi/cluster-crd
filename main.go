@@ -59,7 +59,9 @@ func main() {
 
 	for {
 		clustersFromStore := store.List()
-		fmt.Printf("clusters in store: %d\n", len(clustersFromStore))
+		for _, cl := range clustersFromStore {
+			fmt.Printf("clusters in store: %s\n", cl.(*v1alpha1.Cluster).Spec.ClusterName)
+		}
 		time.Sleep(1 * time.Second)
 
 	}
